@@ -1,0 +1,29 @@
+Step 1: Update Kali
+
+> sudo wget https://archive.kali.org/archive-keyring.gpg -O /usr/share/keyrings/kali-archive-keyring.gpg
+
+> sudo apt update -y
+
+
+
+Step 2: Install and Config Docker
+
+> echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian bookworm stable" | sudo tee /etc/apt/sources.list.d/docker.list
+
+> curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+> sudo apt update
+
+> sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose
+
+Restart the System
+
+
+
+Step 3: Install JuiceShop
+
+> docker pull bkimminich/juice-shop
+
+> docker run -d -p 127.0.0.1:3000:3000 bkimminich/juice-shop
+
+> docker ps -a
